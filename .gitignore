@@ -1,0 +1,6 @@
+.terraform/
+awsKey.pem
+.terraform.lock.*
+terraform.tfstate
+terraform.tfstate.backup
+notas.txt
