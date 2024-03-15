@@ -142,12 +142,12 @@ resource "aws_route_table" "lab_ecs_route_table" {
 }
 
 # ECS Route Table and ECS Subnet Association
-resource "aws_route_table_association" "lab_ecs_rt_subnet_association" {
-  count          = length(aws_subnet.lab_ecs_private_subnets)
-  subnet_id      = aws_subnet.lab_ecs_private_subnets[count.index].id
-  # route_table_id = aws_route_table.lab_ecs_route_table.id
-  route_table_id = aws_route_table.lab_ecs_route_table.id
-}
+# resource "aws_route_table_association" "lab_ecs_rt_subnet_association" {
+#   count          = length(aws_subnet.lab_ecs_private_subnets)
+#   subnet_id      = aws_subnet.lab_ecs_private_subnets[count.index].id
+#   # route_table_id = aws_route_table.lab_ecs_route_table.id
+#   route_table_id = aws_route_table.lab_ecs_route_table.id
+# }
 
 # resource "aws_route" "private-route-to-nat" {
 #   route_table_id         = aws_route_table.lab_ecs_route_table.id

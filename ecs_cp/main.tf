@@ -3,7 +3,11 @@
 #########################
 
 variable "ecs_arn" {}
+variable "ecs_cluster_name" {}
   
+output "ecs_capacity_provider_name" {
+  value = "aws_ecs_capacity_provider.main.name"
+}  
 
 resource "aws_ecs_capacity_provider" "main" {
   name = "demo-ecs-ec2"
@@ -22,7 +26,7 @@ resource "aws_ecs_capacity_provider" "main" {
 }
 
 resource "aws_ecs_cluster_capacity_providers" "main" {
-  cluster_name       = aws_ecs_cluster.main.name
+  cluster_name       = var.ecs_cluster_name
   capacity_providers = [aws_ecs_capacity_provider.main.name]
 
   default_capacity_provider_strategy {

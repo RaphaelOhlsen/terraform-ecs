@@ -1,3 +1,4 @@
+bia/
 .terraform/
 awsKey.pem
 .terraform.lock.*

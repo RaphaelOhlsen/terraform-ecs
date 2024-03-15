@@ -1,11 +1,12 @@
 variable "repository_name" {}
 
-output "repo_url" {
-  value = aws_ecr_repository.lab_repo.repository_url
+output "demo_app_repo_url" {
+  value = aws_ecr_repository.app.repository_url
 }
 
-resource "aws_ecr_repository" "lab_repo" {
+resource "aws_ecr_repository" "app" {
   name = var.repository_name
+  image_tag_mutability = "MUTABLE"
   force_delete = true
 
   image_scanning_configuration {
